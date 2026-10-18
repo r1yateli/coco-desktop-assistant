@@ -1,29 +1,49 @@
-# Coco - Desktop Assistant
+# Coco — Desktop Assistant
 
-Coco is a floating desktop assistant for Windows. You can talk to it or type, and it helps with everyday tasks.
+Coco is a floating desktop assistant for Windows. You can talk to it or type, and it helps you with everyday tasks.
 
-## Features
+## ✨ Features
+
 - Open apps and websites, and play songs on YouTube
-- Timers, reminders, notes and a to-do list
+- Timers, reminders, notes, and a to-do list
 - Screenshots and screen recording
-- Wikipedia lookups, weather and maths
-- Email: read, summarize, find urgent mails, AI-written drafts, scheduled emails
+- Wikipedia lookups, weather, and maths
+- Email assistance: summarize emails, find urgent messages, draft emails with AI, and schedule emails
 - Understands typos and Hinglish
-- Cute voice replies, system tray icon, themes
+- Voice replies, system tray icon, and themes
 
-## Setup
-1. Install Python 3.12 from python.org
+## 🛠️ Setup
+
+1. Install Python 3.12 from [python.org](https://www.python.org/).
 2. Open a terminal in the project folder and run:
+
+   ```bash
    pip install -r requirements.txt
-3. Get a free key from console.groq.com and save it alone in a file called groq_key.txt (next to main.py)
-4. Optional, for email: create coco_email.txt with two lines:
-   - your Gmail address
-   - your Gmail App Password (16 letters)
-5. Run:
+   ```
+
+3. Get a Groq API key from [console.groq.com](https://console.groq.com/) and save it in a file named `groq_key.txt` beside `main.py`.
+4. Optional: For email features, create `coco_email.txt` with your Gmail address and Gmail App Password on separate lines.
+5. Run the application:
+
+   ```bash
    python gui_coco.py
+   ```
 
-## Download
-Don't want to install Python? Download Coco.exe from the Releases page and keep groq_key.txt next to it.
+## 📥 Download
 
-## Privacy
-Never share groq_key.txt or coco_email.txt. They are kept out of this repo on purpose.
+Download the Windows executable from the [GitHub Releases](../../releases) page, when available.
+
+If using the executable, follow the setup instructions for your API key and optional email credentials.
+
+## 👥 Team Coco
+
+-**Riya Teli**
+- **Vinaya Tervankar**
+- **Harshita Gonewar**
+
+
+## 🔒 Privacy & Security
+
+- Never share or upload `groq_key.txt` or `coco_email.txt`.
+- Keep API keys and email credentials private.
+- These credential files are excluded from the repository using `.gitignore`.
