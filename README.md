@@ -1,6 +1,6 @@
-# Coco - Desktop Assistant
+# Coco-Desktop Assistant
 
-Coco is a floating desktop assistant for Windows. You can talk to it or type, and it helps you with everyday tasks.
+Coco is a floating desktop assistant for Windows. Talk to Coco or type messages to get help with everyday tasks.
 
 ## ✨ Features
 
@@ -8,32 +8,82 @@ Coco is a floating desktop assistant for Windows. You can talk to it or type, an
 - Timers, reminders, notes, and a to-do list
 - Screenshots and screen recording
 - Wikipedia lookups, weather, and maths
-- Email assistance: summarize emails, find urgent messages, draft emails with AI, and schedule emails
+- AI-powered email summarization
+- Find urgent emails and schedule emails
 - Understands typos and Hinglish
 - Voice replies, system tray icon, and themes
+- First-launch setup for your name and Groq API key
 
-## 🛠️ Setup
+## 📥 Download Coco for Windows
 
-1. Install Python 3.12 from [python.org](https://www.python.org/).
-2. Open a terminal in the project folder and run:
+**Recommended: Download the ready-to-use executable.**
+
+1. Open the [GitHub Releases page](../../releases).
+2. Open the latest release.
+3. Under **Assets**, download `Coco.exe` (or the executable filename listed in that release).
+4. Save the file to a folder on your computer.
+5. Double-click the downloaded executable to launch Coco.
+
+### First-time setup
+
+When you launch Coco for the first time:
+
+1. **Enter your name.** Coco uses this name in AI-generated email sign-offs.
+2. **Enter your Groq API key** when prompted. You can get your own key from [Groq Console](https://console.groq.com/).
+3. Wait for Coco to open, then type a message to test it.
+
+Your name and API key are saved locally on your computer. You normally won't need to enter them again on every launch.
+
+**Important:** Each user must provide their own Groq API key. Do not use or share another person's key. AI features require a valid API key and an internet connection.
+
+### Optional: Email features
+
+To use email features, create a file named `coco_email.txt` in the same folder as `Coco.exe`.
+
+Put your credentials on separate lines:
+
+1. Your Gmail address
+2. Your Gmail App Password
+
+Use a Gmail App Password rather than your regular Gmail password. Email features may also require additional setup or permissions.
+
+Keep this file private. Never upload it to GitHub.
+
+## 🛠️ Run from source (for developers)
+
+### Requirements
+
+- Windows
+- Python 3.12
+- Git (optional)
+
+### Installation
+
+1. Download or clone this repository.
+2. Open a terminal in the project folder.
+3. Install the dependencies:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Get a Groq API key from [console.groq.com](https://console.groq.com/) and save it in a file named `groq_key.txt` beside `main.py`.
-4. Optional: For email features, create `coco_email.txt` with your Gmail address and Gmail App Password on separate lines.
-5. Run the application:
+4. Run Coco:
 
    ```bash
    python gui_coco.py
    ```
 
-## 📥 Download
+5. Follow the first-launch prompts to enter your name and Groq API key.
 
-Download the Windows executable from the [GitHub Releases](../../releases) page, when available.
+If you prefer manual API-key setup, create a file named `groq_key.txt` beside `main.py` and put your Groq API key inside it.
 
-If using the executable, follow the setup instructions for your API key and optional email credentials.
+## 🔒 Privacy and Security
+
+- Never share or upload `groq_key.txt` or `coco_email.txt`.
+- Never commit API keys, passwords, or other private credentials to GitHub.
+- Credential files and local application data should remain excluded through `.gitignore`.
+- Your Groq API key is used to access Groq's AI service. Review Groq's own privacy and usage policies before using it.
+- Download executable files only from releases you trust.
 
 ## 👥 Team Coco
 
@@ -41,9 +91,15 @@ If using the executable, follow the setup instructions for your API key and opti
 - **Vinaya Tervankar**
 - **Harshita Gonewar**
 
+## 🐛 Troubleshooting
 
-## 🔒 Privacy & Security
+- **Coco does not respond:** Check your internet connection and verify that your Groq API key is valid.
+- **The API-key prompt does not appear:** A key may already be configured through an environment variable or a local `groq_key.txt` file.
+- **The app cannot save your key:** Move Coco to a folder where your Windows account has permission to save files.
+- **Email features do not work:** Check that `coco_email.txt` contains the correct Gmail address and App Password, and confirm any additional email setup required.
 
-- Never share or upload `groq_key.txt` or `coco_email.txt`.
-- Keep API keys and email credentials private.
-- These credential files are excluded from the repository using `.gitignore`.
+If the issue continues, open an issue in this repository and include the error message. Never include API keys or passwords in screenshots or issue reports.
+
+---
+
+**Coco - Your personal desktop assistant.**
