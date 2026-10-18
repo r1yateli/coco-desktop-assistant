@@ -5,7 +5,7 @@ import sys
 import threading
 import time
 import tkinter as tk
-from tkinter import Canvas, Scrollbar
+from tkinter import Canvas, Scrollbar, simpledialog, messagebox
 
 from PIL import Image, ImageTk
 
@@ -135,6 +135,57 @@ class CocoGUI:
         self.tray = None
         self._start_tray()
         self._keep_on_top()
+
+    def setup_first_run(self):
+        """Ask for the user's name first, then the Groq key if it is missing."""
+        # Bring Coco forward so the first-run dialog doesn't hide behind the chat window.
+        try:
+            self.root.deiconify()
+            self.root.lift()
+            self.root.attributes("-topmost", True)
+            self.root.update_idletasks()
+        except Exception:
+            pass
+
+        if not main._user_name():
+            name = simpledialog.askstring(
+                "What's your name?",
+                "What's your name?",
+                parent=self.root
+            )
+            if name and name.strip():
+                main.DATA["profile_name"] = name.strip()
+                main._save_data()
+
+        if not main._groq_key():
+            key = simpledialog.askstring(
+                "Set up Coco",
+                "Enter your Groq API key. Get one at console.groq.com. "
+                "Your key will be saved locally on this computer.",
+                show="*",
+                parent=self.root
+            )
+            if key and key.strip():
+                try:
+                    main._save_groq_key(key.strip())
+                except OSError as exc:
+                    messagebox.showerror(
+                        "Could not save API key",
+                        f"Coco couldn't save groq_key.txt beside the app.\\n\\n{exc}",
+                        parent=self.root
+                    )
+            else:
+                messagebox.showinfo(
+                    "Groq key not set",
+                    "Coco can still open, but AI features need a Groq API key. "
+                    "You can add groq_key.txt beside Coco.exe later.",
+                    parent=self.root
+                )
+
+        try:
+            self.root.attributes("-topmost", False)
+        except Exception:
+            pass
 
     def _set_colors(self, name):
         self.current_theme_name = name
@@ -833,5 +884,6 @@ if __name__ == "__main__":
         sys.exit(0)
     app = CocoGUI()
     main.gui_widget = app
+    app.setup_first_run()
     threading.Thread(target=main.assistant_backend, daemon=True).start()
     app.root.mainloop()
