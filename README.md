@@ -37,7 +37,7 @@ If using the executable, follow the setup instructions for your API key and opti
 
 ## 👥 Team Coco
 
--**Riya Teli**
+- **Riya Teli**
 - **Vinaya Tervankar**
 - **Harshita Gonewar**
 
