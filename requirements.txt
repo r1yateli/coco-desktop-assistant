@@ -1,0 +1,22 @@
+
+# Core requirements (GUI & basic offline speech)
+Pillow
+pyttsx3
+
+# Voice input (Microphone listening via Google Speech Recognition)
+SpeechRecognition
+pyaudio
+
+# Optional: Neural child-like voice (needs internet)
+edge-tts
+
+# Optional: Screen recording & high-speed screenshots
+opencv-python
+numpy
+mss
+
+# Optional: Direct Wikipedia search & WhatsApp automation
+wikipedia
+pywhatkit
+
+pystray
