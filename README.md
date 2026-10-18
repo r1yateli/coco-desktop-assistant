@@ -1,4 +1,4 @@
-# Coco — Desktop Assistant
+# Coco - Desktop Assistant
 
 Coco is a floating desktop assistant for Windows. You can talk to it or type, and it helps you with everyday tasks.
 
